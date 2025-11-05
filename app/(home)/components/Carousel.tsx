@@ -31,7 +31,7 @@ const MyCarousel = () => {
             }}>
                 <CarouselContent className="w-full">
                     {slides.map((slide) => (
-                        <CarouselItem key={slide.id} className="basis-full h-[700px] w-full">
+                        <CarouselItem key={slide.id} className="basis-full h-[900px] w-full">
                             <div className="relative w-full h-full">
                                 <Image
                                     src={slide.src}

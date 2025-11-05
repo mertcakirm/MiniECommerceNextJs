@@ -10,7 +10,7 @@ import {
     SheetTrigger,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { ShoppingCart, Trash, ChevronDown } from "lucide-react";
+import {ShoppingCart, Trash} from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import {
@@ -29,7 +29,7 @@ interface Product {
     discount?: number;
 }
 
-const Basket = () => {
+const Basket = ({theme}) => {
     const router = useRouter();
 
     const [cart, setCart] = useState<Product[]>([
@@ -66,7 +66,11 @@ const Basket = () => {
             <Sheet>
                 <SheetTrigger asChild>
                     <Button variant="secondary" size="lg">
-                        <ShoppingCart strokeWidth={3} color="black" />
+                        {theme === "dark" ? (
+                            <ShoppingCart strokeWidth={3} className="text-white" />
+                        ) : (
+                            <ShoppingCart strokeWidth={3} className="text-gray-700" />
+                        )}
                     </Button>
                 </SheetTrigger>
 
@@ -96,7 +100,7 @@ const Basket = () => {
 
                                             <div className="flex-1 flex flex-col justify-between h-full">
                                                 <div>
-                                                    <h3 className="font-semibold text-gray-800">{item.name}</h3>
+                                                    <h3 className="font-semibold text-gray-800 dark:text-white">{item.name}</h3>
                                                     <div className="flex items-center gap-2">
                                                         {item.discount ? (
                                                             <>
@@ -114,12 +118,12 @@ const Basket = () => {
                                                     <div className="flex items-center border rounded-lg overflow-hidden">
                                                         <button
                                                             onClick={() => decrement(item.id)}
-                                                            className="px-3 py-1 hover:bg-gray-200 transition"
+                                                            className="px-3 py-1 hover:bg-gray-200 hover:text-black transition"
                                                         >−</button>
                                                         <span className="px-4">{item.quantity}</span>
                                                         <button
                                                             onClick={() => increment(item.id)}
-                                                            className="px-3 py-1 hover:bg-gray-200 transition"
+                                                            className="px-3 py-1 hover:bg-gray-200 hover:text-black transition"
                                                         >+</button>
                                                     </div>
 
@@ -142,15 +146,15 @@ const Basket = () => {
                                             Detayları Göster
                                         </AccordionTrigger>
                                         <AccordionContent className="flex flex-col gap-2 mt-2">
-                                            <div className="flex justify-between text-gray-700">
+                                            <div className="flex justify-between text-gray-700 dark:text-gray-400">
                                                 <span>Ara Toplam:</span>
                                                 <span>${subtotal.toFixed(2)}</span>
                                             </div>
-                                            <div className="flex justify-between text-gray-700">
+                                            <div className="flex justify-between text-gray-700 dark:text-gray-400">
                                                 <span>KDV (%18):</span>
                                                 <span>${tax.toFixed(2)}</span>
                                             </div>
-                                            <div className="flex justify-between font-bold text-gray-800">
+                                            <div className="flex justify-between font-bold text-gray-800 dark:text-gray-400">
                                                 <span>Toplam:</span>
                                                 <span>${totalPrice.toFixed(2)}</span>
                                             </div>

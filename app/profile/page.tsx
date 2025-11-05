@@ -64,7 +64,6 @@ const ProfilePage = () => {
 
     const [favorites, setFavorites] = useState(Array.from({length: 5}).map(() => 0));
 
-    // 🟥 Başlangıçta tüm kalpler aktif (kırmızı)
     const [liked, setLiked] = useState(Array.from({length: 5}).map(() => true));
 
     const [passwordDialogOpen, setPasswordDialogOpen] = useState(false);
@@ -81,7 +80,6 @@ const ProfilePage = () => {
         setFavorites(newFavs);
     };
 
-    // 🔁 Kalp tıklanınca aktif/pasif geçişi
     const toggleLike = (index: number) => {
         const newLikes = [...liked];
         newLikes[index] = !newLikes[index];
@@ -90,7 +88,7 @@ const ProfilePage = () => {
 
     return (
         <div className="container mt-28 mx-auto py-10 px-4 md:px-10">
-            {/* Profil Başlığı */}
+
             <div className="flex flex-col md:flex-row items-center gap-6 mb-10">
                 <div className="relative w-28 h-28">
                     <Image
@@ -101,12 +99,11 @@ const ProfilePage = () => {
                     />
                 </div>
                 <div className="text-center md:text-left">
-                    <h1 className="text-2xl font-bold text-gray-800">{user.name}</h1>
+                    <h1 className="text-2xl font-bold text-gray-800 dark:text-white">{user.name}</h1>
                     <p className="text-gray-500">{user.email}</p>
                 </div>
             </div>
 
-            {/* Sekmeli Menü */}
             <Tabs defaultValue="orders" className="w-full">
                 <TabsList className="flex flex-wrap justify-center md:justify-start gap-2">
                     <TabsTrigger value="orders">Siparişlerim</TabsTrigger>
@@ -116,7 +113,7 @@ const ProfilePage = () => {
 
                 {/* Siparişler */}
                 <TabsContent value="orders" className="mt-6">
-                    <ScrollArea className="h-[400px] rounded-md border p-4">
+                    <ScrollArea className="min-h-[300] max-h-[600px] rounded-md border p-4">
                         {orders.map((order) => (
                             <Card key={order.id} className="mb-4 hover:shadow-md transition">
                                 <CardContent

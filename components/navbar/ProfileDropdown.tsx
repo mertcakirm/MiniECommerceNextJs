@@ -7,10 +7,10 @@ import {
     DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
 import {Button} from "@/components/ui/button";
-import {User2Icon} from "lucide-react";
+import {ShoppingCart, User2Icon} from "lucide-react";
 import Link from "next/link";
 
-const ProfileDropdown = () => {
+const ProfileDropdown = ({theme}) => {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -19,7 +19,11 @@ const ProfileDropdown = () => {
                     aria-label="Kullanıcı menüsü"
                     size="lg"
                 >
-                    <User2Icon strokeWidth={3} color="black" />
+                    {theme === "dark" ? (
+                        <User2Icon strokeWidth={3} className="text-white" />
+                    ) : (
+                        <User2Icon strokeWidth={3} className="text-gray-700" />
+                    )}
                 </Button>
             </DropdownMenuTrigger>
 

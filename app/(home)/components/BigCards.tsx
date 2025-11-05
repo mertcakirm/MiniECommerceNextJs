@@ -60,7 +60,7 @@ const BigCards = () => {
                             </h2>
                             <Button
                                 variant="secondary"
-                                className="bg-white text-black cursor-pointer"
+                                className="bg-white dark:bg-gray-100 text-black cursor-pointer"
                             >
                                 Hemen Keşfet
                             </Button>

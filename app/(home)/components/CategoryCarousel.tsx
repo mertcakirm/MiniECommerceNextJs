@@ -61,7 +61,7 @@ const categories = [
 ];
 const CategoryCarousel = () => {
     return (
-        <div className="w-full py-10 bg-gradient-to-b from-gray-50 to-gray-100">
+        <div className="w-full py-10 bg-transparent from-gray-50 to-gray-100">
             <div className="max-w-7xl mx-auto px-6">
                 <Carousel
                     opts={{
