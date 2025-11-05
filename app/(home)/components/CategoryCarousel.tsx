@@ -10,6 +10,7 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
+import Link from "next/link";
 
 const categories = [
     {
@@ -75,6 +76,7 @@ const CategoryCarousel = () => {
                                 key={index}
                                 className="pl-2 md:pl-4 basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/6"
                             >
+                                <Link href={`/products/category/${category.name.replace(/\s+/g, "-").toLowerCase()}`}>
                                 <Card className="relative overflow-hidden p-0 rounded-2xl shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-1">
                                     <CardContent className="p-0">
                                         <div className="relative w-full aspect-square overflow-hidden">
@@ -93,6 +95,7 @@ const CategoryCarousel = () => {
                                         </div>
                                     </CardContent>
                                 </Card>
+                                </Link>
                             </CarouselItem>
                         ))}
                     </CarouselContent>

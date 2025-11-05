@@ -38,7 +38,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
         >
             {/* Ürün Görseli */}
             <div className="relative w-full h-80">
-                <Link href={`/product/${product.id}`}>
+                <Link href={`/products/${product.id}`}>
                     <Image
                         src={product.image}
                         alt={product.name}

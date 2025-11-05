@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
-import ProductCard from "./components/ProductCard";
+import React, {useState} from 'react';
+import ProductCard from "@/app/products/components/ProductCard";
 
 const ProductsPage = () => {
     const [favorites, setFavorites] = useState<boolean[]>([]);
